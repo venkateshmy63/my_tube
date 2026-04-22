@@ -1,0 +1,9 @@
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "sk-6HCzXGgI1Vy5BY1oI9PCxYFIveOmBHq2hnbpGk4M8jLztYHz",
+    "ANTHROPIC_API_KEY": "sk-6HCzXGgI1Vy5BY1oI9PCxYFIveOmBHq2hnbpGk4M8jLztYHz",
+    "ANTHROPIC_BASE_URL": "https://agentrouter.org/",
+    "ANTHROPIC_MODEL": "glm-5.1",
+    "ANTHROPIC_SMALL_FAST_MODEL": "glm-5.1"
+  }
+}

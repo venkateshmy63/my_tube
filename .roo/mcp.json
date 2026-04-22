@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "composio": {
+      "type": "streamable-http",
+      "url": "https://connect.composio.dev/mcp",
+      "headers": {
+        "x-consumer-api-key": "ck_n5yjBCtjyToTg2m1T579"
+      },
+      "alwaysAllow": [],
+      "disabled": false
+    }
+  }
+}
