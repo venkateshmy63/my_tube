@@ -129,7 +129,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 style: const TextStyle(color: AppColors.onSurface, fontSize: 14),
                 decoration: InputDecoration(
                   hintText: 'Tell us what you think...',
-                  hintStyle: TextStyle(color: AppColors.subtle.withOpacity(0.7)),
+                  hintStyle: TextStyle(color: AppColors.subtle.withValues(alpha: 0.7)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -203,7 +203,7 @@ class _ContactScreenState extends State<ContactScreen> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.15),
+                color: AppColors.accent.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: AppColors.accent, size: 20),

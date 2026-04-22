@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/constants/app_routes.dart';
-import '../../core/constants/app_strings.dart';
 import 'bottom_nav_bar.dart';
 
 /// Main app scaffold with bottom navigation

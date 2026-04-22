@@ -126,7 +126,7 @@ class _AddressBarState extends State<AddressBar> {
               decoration: InputDecoration(
                 hintText: _isEditing ? 'Enter URL' : displayUrl,
                 hintStyle: TextStyle(
-                  color: AppColors.subtle.withOpacity(0.7),
+                  color: AppColors.subtle.withValues(alpha: 0.7),
                   fontSize: 14,
                 ),
                 border: InputBorder.none,

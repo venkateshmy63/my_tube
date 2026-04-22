@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withOpacity(0.2),
+                        color: AppColors.accent.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
                       child: const Center(
@@ -102,7 +102,7 @@ class ProfileScreen extends StatelessWidget {
                       trailing: Switch(
                         value: true,
                         onChanged: (value) {},
-                        activeColor: AppColors.highlight,
+                        activeThumbColor: AppColors.highlight,
                       ),
                     ),
                     _buildDivider(),
@@ -112,7 +112,7 @@ class ProfileScreen extends StatelessWidget {
                       trailing: Switch(
                         value: false,
                         onChanged: (value) {},
-                        activeColor: AppColors.highlight,
+                        activeThumbColor: AppColors.highlight,
                       ),
                     ),
                   ],

@@ -18,12 +18,12 @@ class PiPToggleButton extends StatelessWidget {
     return FloatingActionButton.small(
       onPressed: onToggle,
       backgroundColor: isPiPActive ? AppColors.highlight : AppColors.accent,
+      tooltip: isPiPActive ? 'Exit PiP' : AppStrings.togglePip,
       child: Icon(
         isPiPActive ? Icons.picture_in_picture_alt : Icons.picture_in_picture_alt_outlined,
         color: Colors.white,
         size: 20,
       ),
-      tooltip: isPiPActive ? 'Exit PiP' : AppStrings.togglePip,
     );
   }
 }

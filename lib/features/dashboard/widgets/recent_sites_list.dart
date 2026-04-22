@@ -46,7 +46,7 @@ class RecentSitesList extends StatelessWidget {
                 color: AppColors.surface,
                 borderRadius: BorderRadius.circular(24),
                 border: Border.all(
-                  color: AppColors.accent.withOpacity(0.3),
+                  color: AppColors.accent.withValues(alpha: 0.3),
                   width: 1,
                 ),
               ),

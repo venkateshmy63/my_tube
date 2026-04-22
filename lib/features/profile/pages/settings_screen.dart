@@ -162,7 +162,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     style: const TextStyle(color: AppColors.onSurface, fontSize: 14),
                     decoration: InputDecoration(
                       hintText: 'Enter default URL',
-                      hintStyle: TextStyle(color: AppColors.subtle.withOpacity(0.7)),
+                      hintStyle: TextStyle(color: AppColors.subtle.withValues(alpha: 0.7)),
                       errorText: _isUrlValid ? null : 'Please enter a valid URL',
                       errorStyle: const TextStyle(color: AppColors.highlight, fontSize: 12),
                       border: OutlineInputBorder(
@@ -222,7 +222,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         _backgroundPlay = value;
                       });
                     },
-                    activeColor: AppColors.highlight,
+                    activeThumbColor: AppColors.highlight,
                   ),
                   const Divider(color: AppColors.divider, height: 1),
                   SwitchListTile(
@@ -236,7 +236,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         _autoPip = value;
                       });
                     },
-                    activeColor: AppColors.highlight,
+                    activeThumbColor: AppColors.highlight,
                   ),
                 ],
               ),

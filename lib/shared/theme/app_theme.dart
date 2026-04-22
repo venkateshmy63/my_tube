@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../core/constants/app_colors.dart';
 
 /// App theme configuration
@@ -12,7 +13,6 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.accent,
         surface: Colors.white,
-        background: Color(0xFFF5F5F5),
         error: AppColors.error,
       ),
       scaffoldBackgroundColor: const Color(0xFFF5F5F5),
@@ -80,7 +80,6 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.accent,
         surface: AppColors.surface,
-        background: AppColors.background,
         error: AppColors.error,
         onSurface: AppColors.onSurface,
       ),
@@ -125,18 +124,18 @@ class AppTheme {
         fillColor: AppColors.surface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: AppColors.accent, width: 2),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
@@ -147,100 +146,79 @@ class AppTheme {
     );
   }
 
-  // Text theme with fallback fonts (will use Google Fonts when available)
+  // Text theme using Google Fonts (Syne for headings, DM Sans for body)
   static TextTheme _textTheme(Color textColor, bool isDark) {
-    const String syneFont = 'Syne';
-    const String dmSansFont = 'DM Sans';
-    
-    // Fallback to default fonts if custom fonts not available
-    final String headlineFontFamily = syneFont;
-    final String bodyFontFamily = dmSansFont;
-    
-    return TextTheme(
-      displayLarge: TextStyle(
+    return GoogleFonts.dmSansTextTheme().copyWith(
+      displayLarge: GoogleFonts.syne(
         fontSize: 28,
         fontWeight: FontWeight.w700,
         color: textColor,
-        fontFamily: headlineFontFamily,
       ),
-      displayMedium: TextStyle(
+      displayMedium: GoogleFonts.syne(
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: textColor,
-        fontFamily: headlineFontFamily,
       ),
-      displaySmall: TextStyle(
+      displaySmall: GoogleFonts.syne(
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: textColor,
-        fontFamily: headlineFontFamily,
       ),
-      headlineMedium: TextStyle(
+      headlineMedium: GoogleFonts.syne(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: textColor,
-        fontFamily: headlineFontFamily,
       ),
-      headlineSmall: TextStyle(
+      headlineSmall: GoogleFonts.syne(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: textColor,
-        fontFamily: headlineFontFamily,
       ),
-      titleLarge: TextStyle(
+      titleLarge: GoogleFonts.dmSans(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      titleMedium: TextStyle(
+      titleMedium: GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      titleSmall: TextStyle(
+      titleSmall: GoogleFonts.dmSans(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      bodyLarge: TextStyle(
+      bodyLarge: GoogleFonts.dmSans(
         fontSize: 16,
         fontWeight: FontWeight.w400,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      bodyMedium: TextStyle(
+      bodyMedium: GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: FontWeight.w400,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      bodySmall: TextStyle(
+      bodySmall: GoogleFonts.dmSans(
         fontSize: 12,
         fontWeight: FontWeight.w400,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      labelLarge: TextStyle(
+      labelLarge: GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      labelMedium: TextStyle(
+      labelMedium: GoogleFonts.dmSans(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
-      labelSmall: TextStyle(
+      labelSmall: GoogleFonts.dmSans(
         fontSize: 11,
         fontWeight: FontWeight.w500,
         letterSpacing: 0.8,
         color: textColor,
-        fontFamily: bodyFontFamily,
       ),
     );
   }

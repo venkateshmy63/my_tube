@@ -19,8 +19,8 @@ class DashboardScreen extends ConsumerStatefulWidget {
 
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   String _playbackStatus = 'idle';
-  int _pagesVisited = 0;
-  int _backgroundMinutes = 0;
+  final int _pagesVisited = 0;
+  final int _backgroundMinutes = 0;
   int _pipSessions = 0;
   final List<String> _recentSites = [
     'https://youtube.com',

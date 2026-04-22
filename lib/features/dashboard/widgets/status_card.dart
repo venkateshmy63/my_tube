@@ -48,7 +48,7 @@ class StatusCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -99,7 +99,7 @@ class StatusCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: _statusColor.withOpacity(0.15),
+              color: _statusColor.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(24),
             ),
             child: Row(
