@@ -10,7 +10,17 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.go(AppRoutes.dashboard);
+        }
+      },
+      child: Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -93,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
                     _buildSettingsTile(
                       icon: Icons.settings_outlined,
                       title: AppStrings.settings,
-                      onTap: () => context.go(AppRoutes.settings),
+                      onTap: () => context.push(AppRoutes.settings),
                     ),
                     _buildDivider(),
                     _buildSettingsTile(
@@ -132,31 +142,31 @@ class ProfileScreen extends StatelessWidget {
                     _buildSettingsTile(
                       icon: Icons.info_outline,
                       title: AppStrings.aboutUs,
-                      onTap: () => context.go(AppRoutes.about),
+                      onTap: () => context.push(AppRoutes.about),
                     ),
                     _buildDivider(),
                     _buildSettingsTile(
                       icon: Icons.privacy_tip_outlined,
                       title: AppStrings.privacyPolicy,
-                      onTap: () => context.go(AppRoutes.privacy),
+                      onTap: () => context.push(AppRoutes.privacy),
                     ),
                     _buildDivider(),
                     _buildSettingsTile(
                       icon: Icons.description_outlined,
                       title: AppStrings.termsOfService,
-                      onTap: () => context.go(AppRoutes.terms),
+                      onTap: () => context.push(AppRoutes.terms),
                     ),
                     _buildDivider(),
                     _buildSettingsTile(
                       icon: Icons.help_outline,
                       title: AppStrings.faq,
-                      onTap: () => context.go(AppRoutes.faq),
+                      onTap: () => context.push(AppRoutes.faq),
                     ),
                     _buildDivider(),
                     _buildSettingsTile(
                       icon: Icons.contact_mail_outlined,
                       title: AppStrings.contactUs,
-                      onTap: () => context.go(AppRoutes.contact),
+                      onTap: () => context.push(AppRoutes.contact),
                     ),
                   ],
                 ),
@@ -188,6 +198,7 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }

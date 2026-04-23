@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/constants/app_colors.dart';
@@ -30,7 +31,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   void _openYouTube() {
     ref.read(currentUrlProvider.notifier).state = AppStrings.youtubeUrl;
-    context.go(AppRoutes.webview);
+    context.push(AppRoutes.webview);
   }
 
   void _togglePiP() {
@@ -69,7 +70,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   void _openSite(String url) {
     ref.read(currentUrlProvider.notifier).state = url;
-    context.go(AppRoutes.webview);
+    context.push(AppRoutes.webview);
   }
 
   void _removeSite(int index) {
@@ -89,9 +90,48 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     }
   }
 
+  Future<void> _showExitConfirmation(BuildContext context) async {
+    final shouldExit = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: AppColors.surface,
+        title: const Text(
+          'Exit App',
+          style: TextStyle(color: AppColors.onSurface),
+        ),
+        content: const Text(
+          'Do you want to exit the app?',
+          style: TextStyle(color: AppColors.onSurface),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text(
+              'Yes',
+              style: TextStyle(color: AppColors.error),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (shouldExit == true) {
+      SystemNavigator.pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _showExitConfirmation(context);
+      },
+      child: Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -167,6 +207,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

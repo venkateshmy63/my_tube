@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_routes.dart';
 import '../../core/constants/app_strings.dart';
 import 'webview_controller_provider.dart';
 import 'widgets/address_bar.dart';
@@ -137,7 +139,18 @@ class _WebViewScreenState extends ConsumerState<WebViewScreen> {
   Widget build(BuildContext context) {
     final controller = ref.watch(webViewControllerProvider);
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        // On back press, always go to dashboard (home)
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.go(AppRoutes.dashboard);
+        }
+      },
+      child: Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
@@ -201,6 +214,7 @@ class _WebViewScreenState extends ConsumerState<WebViewScreen> {
               ),
           ],
         ),
+      ),
       ),
     );
   }
